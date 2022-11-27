@@ -1,0 +1,3 @@
+SFC - Single FIle Components
+    -> Files with .vue extensions, encapsulates logic (JS) Template (HTML) and Styles (CSS)
+    
