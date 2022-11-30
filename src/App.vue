@@ -1,15 +1,10 @@
 <script setup>
-import HelloWorld from "./components/CounterComponent.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import CounterComponent from "./components/CounterComponent.vue";
 </script>
 
 <template>
-  <header>
-    <HelloWorld msg="You did it!" />
-  </header>
-
   <main>
-    <TheWelcome />
+    <CounterComponent />
   </main>
 </template>
 
