@@ -1,12 +1,15 @@
 <script setup>
 import { ref } from "vue";
+import DeezerService from "../../services/Deezer/Deezer";
 
 const searchedSong = ref("");
-const empty = ref(false);
-const onFormSubmit = (e) => {
+const isEmpty = ref(false);
+
+const onFormSubmit = async (e) => {
+  console.log(searchedSong.value);
   e.preventDefault();
-  if (!searchedSong.value.song) empty.value = true;
-  console.log(`Searched song ${searchedSong.value}`);
+  if (!searchedSong.value) isEmpty.value = true;
+  console.log(await DeezerService.searchTrack(searchedSong.value));
 };
 </script>
 
@@ -20,8 +23,8 @@ const onFormSubmit = (e) => {
           placeholder="Search for your favorite song ..."
           class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
         />
-        <small v-if="empty" class="text-red-700 font-bold"
-          >Selecione ao menos uma música <span class="ml-3">😓</span>
+        <small v-if="isEmpty" class="text-red-700 font-bold">
+          Search at least for one song <span class="ml-3">😓</span>
         </small>
       </div>
       <button
@@ -32,7 +35,6 @@ const onFormSubmit = (e) => {
       </button>
     </form>
   </div>
-  <div class="flex justify-center"></div>
 </template>
 
 <style lang=""></style>
