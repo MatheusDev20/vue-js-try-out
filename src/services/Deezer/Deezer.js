@@ -2,8 +2,8 @@ import DeezerAPI from "./api";
 
 const DeezerService = {
   async searchTrack(trackName) {
-    const response = await DeezerAPI.get(`search?q=track:"${trackName}"`);
-    console.log(response);
+    const response = await DeezerAPI.get(`?track=${trackName}"`);
+    return response;
   },
 };
 

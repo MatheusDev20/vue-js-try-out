@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const DeezerAPI = axios.create({
-  baseURL: "https://api.deezer.com/",
+  baseURL: "http://localhost:8080",
 });
 
 export default DeezerAPI;
